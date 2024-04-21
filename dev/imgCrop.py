@@ -4,8 +4,8 @@
 import cv2
 import numpy as np
 import os
-# for parsing arguments
 import sys
+from pathlib import Path
 
 # crops the image into a square of given dimensions
 def cropImage(img, dim=(128,128)):
@@ -35,9 +35,13 @@ def splitImage(img, n):
 def main():
 
     # get path to the animals directory from first arg
-    path = sys.argv[1]
-    blocks = bool(sys.argv[2])
-    num_blocks = int(sys.argv[3])
+    # get absolute path to the directory
+    cw = os.getcwd()
+    parent = Path(cw).parent
+    path = str(parent) + '/datasets/animals'
+
+    blocks = bool(sys.argv[1])
+    num_blocks = int(sys.argv[2])
 
     # uncomment and change path below in case parsing arguments doesn't work
     # path = '/Users/gustavozunigapadron/Desktop/animals'
