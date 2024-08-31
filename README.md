@@ -1,1 +1,2 @@
-# csc422-project-team12
+# Animal Classifier 
+
